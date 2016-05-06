@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" data-ng-app="Estoque">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Entrada de Estoque</title>
+
+    <style>
+        body{
+            background-color: rgba(249, 269, 168, .5);
+            font-size: 20px;
+            color: #696969;
+        }
+
+        .title{
+            color: blue;
+            font-weight: bold;
+        }
+
+        .produto{
+            text-decoration: underline;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="nome">Nome do Produto:
+            <input type="text" data-ng-model="nome">
+        </label>
+
+        <label for="qtd">Quantidade:
+            <input type="number" data-ng-model="qtd">
+        </label>
+    </form>
+
+    <div class="grupo-estoque">
+        <ul>
+            <li>
+                <span class="title">Nome do Produto: </span>
+                <span class="produto">{{ nome }}</span>
+            </li>
+
+            <li>
+                <span class="title">Quantidade: </span>
+                <span class="produto">{{ qtd }}</span>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+    <script>
+        var app = angular.module('Estoque', []);
+    </script>
+</body>
+
+</html>
