@@ -15,7 +15,7 @@ Onde os **controlers** manipula os dados que estão no **model**. A **view** é 
 #### Exemplo
 
 **1. View:** Ei, controller! O usuário quer logar no sistema. Ele já forneceu os dados de login, tá com você! :bowtie:  
-**2. Controller:** Ok, vou verificar com o model e já te aviso. Aguarde 1 instante, *please*. Modelzinho, meu pitchulo, dá um confere nesses dados aí de favorzinho! :)  
+**2. Controller:** Ok, vou verificar com o model e já te aviso. Aguarde 1 instante, *please*. Modelzinho, meu pitchulo, dá um confere nesses dados aí de favorzinho! :smiley:  
 **3. Model:**  Firmeza, manow! Libera o jhow aí! :thumbsup:  
 **4. Controller:**  Ei, view! Tudo certo, o jhow está autorizado a logar no sistema! :wink:  
 **5. View:** Aí sim, hein! Demorou, mostrando ao jhow que ele está logado no sistema! :kissing_smiling_eyes:
@@ -108,3 +108,7 @@ Em MVP, o presenter tem a responsabilidade de ser como uma mediadora.
 
 </html>
 ```
+
+Print da Tela:
+
+![Print da Tela](https://raw.githubusercontent.com/ednilsonamaral/be-mean-instagram-angular1/master/class-01/exercicio01.png)
