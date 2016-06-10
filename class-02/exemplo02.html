@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" data-ng-app="BeMEAN">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<title>Be MEAN - AngularJS 1.5.x</title>-->
+    <title>{{ titulo }}</title>
+
+</head>
+
+<!-- iniciando a aplicação com o ng-app -->
+<body>
+    <label for="nome">Seu nome:
+        <input type="text" data-ng-model="nome">
+    </label>
+
+    <p>Olá {{ nome | truncate:5:" veja mais." }}</p>
+
+    <label for="titulo">Título:
+        <input type="text" data-ng-model="titulo">
+    </label>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+    <script>
+        angular.module('BeMEAN', [])
+            //o filtro a seguir vai inverter uma string: transforma em array (split) aí inverte (reverse) e junta tudo (join)
+            .filter('reverseString', function() {
+                return function(text) {
+                    if(text) return text.split("").reverse().join("");
+                }
+            })
+            .filter('truncate', function() {
+                return function(text, length, end) {
+                    if(text) {
+                        //se não passar nenhum número entra nesse if aqui
+                        if(isNaN(length)) length = 10;
+                        if(end === undefined) end = "...";
+                        if(text.length <= length) return text;
+                        else return String(text).substring(0, length) + end;
+                    }
+                }
+            });
+    </script>
+</body>
+
+</html>
