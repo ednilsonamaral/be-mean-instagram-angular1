@@ -1,7 +1,7 @@
 # AngularJS 1.5.x - Aula 02 - Exercício  
 **user:** [ednilsonamaral](https://github.com/ednilsonamaral)  
-**autor:** Ednilson Amaral
-**data:**
+**autor:** Ednilson Amaral  
+**data:** 1465530863095
 
 
 ## Crie 1 exemplo para pelo menos 5 filtros padrões do Angular.  
