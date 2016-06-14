@@ -1,7 +1,7 @@
 # AngularJS 1.5.x - Aula 03 - Exercício  
 **user:** [ednilsonamaral](https://github.com/ednilsonamaral)  
 **autor:** Ednilson Amaral  
-**data:**
+**data:** 1465875377928
 
 
 ## Criar 1 *Controller* de Professores, igual aos outros, seguindo nosso último padrão.  
