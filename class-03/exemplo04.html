@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" data-ng-app="BeMEAN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Be MEAN - AngularJS 1.5.x - Controller as</title>
+</head>
+
+<body>
+    <div data-ng-controller="UserController as User">
+        <h1>{{ User.titulo }}</h1>
+
+        <ul>
+            <li data-ng-repeat="user in User.users">
+                {{ user.name }} - {{ user.email }}
+            </li>
+        </ul>
+    </div>
+
+    <div data-ng-controller="CursoController as Curso">
+        <h1>{{ Curso.titulo }}</h1>
+
+        <ul>
+            <li data-ng-repeat="curso in Curso.cursos">
+                {{ curso.name }} - {{ curso.teacher }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+    <script>
+        angular.module('BeMEAN', [])
+            .controller('UserController', UserController)
+            .controller('CursoController', CursoController);
+
+        function UserController(){
+            var vm = this;
+            vm.titulo = "Be MEAN - Usuários";
+            vm.users = [
+                {name: 'Ednilson Amaral', email:'manoveio@veiomano.com'},
+                {name: 'Amaral', email:'manoveio@veiomano.com'},
+                {name: 'Tio Sam', email:'manoveio@veiomano.com'}
+            ];
+        }
+
+        function CursoController(){
+            var vm = this;
+            vm.titulo = "Be MEAN - Cursos";
+            vm.cursos = [
+                {name: 'Be MEAN', teacher:'Suissa'},
+                {name: 'Learning Machine', teacher:'Ivan Gustavo'},
+                {name: 'Laravel', teacher:'Michael Douglas'}
+            ];
+        }
+    </script>
+</body>
+
+</html>
