@@ -1,7 +1,7 @@
 # AngularJS 1.5.x - Aula 03 - Exercício  
 **user:** [ednilsonamaral](https://github.com/ednilsonamaral)  
 **autor:** Ednilson Amaral  
-**data:** 1465875377928
+**data:** 1468084585886
 
 
 ## Criar 1 *Controller* de Professores, igual aos outros, seguindo nosso último padrão.  
@@ -32,7 +32,7 @@
 
         <ul>
             <li data-ng-repeat="teacher in Teacher.teachers">
-                {{ teacher.name }} - {{ teacher.age | limitTo:3 }} anos - {{ teacher.sex | uppercase }}
+                {{ teacher.name }} - {{ teacher.age | limitTo:3 }} anos <em>({{ teacher.age | checkAge }})</em> - {{ teacher.sex | uppercase }}
             </li>
         </ul>
     </div>
@@ -42,6 +42,12 @@
     <script>
         angular.module('aula03', [])
             .controller('TeachersController', TeachersController);
+            .filter('checkAge', function() {
+                return function(num){
+                    if(num<18) return "Menor de idade!";
+                    else return "Maior de idade, tá fudido!";
+                }
+            });
 
         function TeachersController(){
             var vm = this;
@@ -49,7 +55,8 @@
             vm.teachers = [
                 {name: 'Suissa', age: '30', sex:'m'},
                 {name: 'Giovana', age: '29', sex:'f'},
-                {name: 'Bruna', age: '2855', sex:'f'}
+                {name: 'Bruna', age: '2855', sex:'f'},
+                {name: 'José Santos', age: '17', sex:'m'}
             ];
         }
     </script>
