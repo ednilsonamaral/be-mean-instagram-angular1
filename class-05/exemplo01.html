@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html lang="en" data-ng-app="BeMEAN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Be MEAN</title>
+</head>
+
+<body data-ng-controller="UserController as User">
+    <span data-ng-init="predicate = 'name'; reverse = false;"></span>
+
+    <h1>{{ User.titulo }}</h1>
+
+    <p>
+        <label>
+            Nome:
+            <input type="text" data-ng-model="form.User.name">
+        </label>
+        <br>
+
+        <label>
+            Email:
+            <input type="email" data-ng-model="form.User.email">
+        </label>
+    </p>
+
+    <label>
+        Busca:
+        <input ng-model="searchUser">
+    </label>
+
+    <button data-ng-click="User.add(form.User)">ADD</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th data-ng-repeat="(key, value) in User.users[0]">{{ key }}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr data-ng-repeat="user in User.users | orderBy:predicate:reverse | filter:searchUser">
+                <td data-ng-repeat="(key, value) in user">{{ value }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div data-ng-controller="CursoController as Curso">
+        <h2>{{ Curso.titulo }}</h2>
+
+        <button data-ng-click="Curso.add()">ADD</button>
+
+        <ul>
+            <li data-ng-repeat="curso in Curso.cursos">{{ curso.name }} - {{ curso.teacher }}</li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script>
+        angular.module('BeMEAN', [])
+            .controller('UserController', UserController)
+            .controller('CursoController', CursoController);
+
+        function UserController() {
+            var vm = this;
+            vm.titulo = "Be MEAN - Usuários";
+            vm.users = [
+                {name: 'Suissa', email: 'suissera@manoveio.com'}
+                , {name: 'João', email: 'joao@macioesedoso.com'}
+                , {name: 'Franciele', email: 'fran@quimica.com'}
+            ];
+
+            vm.add = add;
+            function add(user){
+                console.log('user', user);
+                vm.users.push(user);
+            }
+        }
+
+        function CursoController() {
+            var vm = this;
+            vm.titulo = "Be MEAN - Cursos";
+            vm.cursos = [
+                {name: 'Be MEAN', teacher: 'Suissa'}
+                , {name: 'Learning Machine', teacher: 'Ivan Gustavo'}
+                , {name: 'Laravel', teacher: 'Michael Douglas'}
+            ];
+
+            vm.add = add;
+            function add(){
+                vm.cursos.push({
+                    name: 'Front-End - HTML | CSS | JS',
+                    teacher: 'Ednilson Amaral'
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
