@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en" data-ng-app="BeMEAN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Be MEAN</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+    <style>
+    .wrapper{
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .message{
+        transition: all linear 0.5s;
+        background-color: #666;
+        height: 100px;
+    }
+
+    h1{
+        font-size: 30px;
+        font-weight: bold;
+        color: blue;
+    }
+
+    .ng-hide{
+        height: 0;
+    }
+    </style>
+</head>
+
+<body data-ng-controller="UserController as User">
+    <section class="row wrapper">
+        <h1>{{ User.titulo }}</h1>
+
+        <div class="mostrar">
+            <input type="checkbox" id="mostrar" ng-model="myCheckShow">
+            <label for="mostrar">Mostrar</label>
+
+            <p><strong>Valor de myCheckShow:</strong> {{ myCheckShow }}</p>
+
+            <div class="message" ng-show="myCheckShow">
+                <p>Alguma mensagem.</p>
+            </div>
+        </div>
+
+        <div class="esconder">
+            <input type="checkbox" id="esconder" ng-model="myCheckHide">
+            <label for="esconder">Esconder</label>
+
+            <p><strong>Valor de myCheckHide:</strong> {{ myCheckHide }}</p>
+
+            <div class="message" ng-hide="myCheckHide">
+                <p>Alguma mensagem.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-animate.js"></script>
+
+    <script>
+    angular.module('BeMEAN', ['ngAnimate'])
+        .controller('UserController', UserController);
+
+    function UserController() {
+        var vm = this;
+        vm.titulo = "Be MEAN - Animações";
+    }
+    </script>
+</body>
+</html>
