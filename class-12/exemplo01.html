@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en" data-ng-app="BeMEAN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Be MEAN</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-ng-controller="UserController as User">
+    <section class="row wrapper">
+        <h1 data-ng-class="User.tituloStyleClass">{{ User.titulo }}</h1>
+
+        <select data-ng-model="User.selected" data-ng-options="user.email as user.name for user in User.users">
+            <option value="">Choise a user</option>
+        </select>
+
+        <form name="userForm">
+            <div data-ng-class="{'invalid': userForm.name.$invalid && !userForm.name.$pristine, 'dirty': userForm.name.$dirty}">
+                <label for="name">Name</label>
+                <input type="text" name="name" data-ng-model="user.name" required>
+            </div>
+
+            <div data-ng-class="{'invalid': userForm.email.$invalid && !userForm.name.$pristine}">
+                <label for="email">Email</label>
+                <input type="email" name="email" data-ng-model="user.email">
+            </div>
+
+            <button data-ng-disabled="User.editing || userForm.name.$pristine" data-ng-click="User.add(User.form, User.users)" class="btn btn-large green waves-effect waves-light col s12" type="submit" name="action">Add</button>
+
+            <button data-ng-if="!User.editing" data-ng-click="User.save(User.form)" class="btn btn-large blue waves-effect waves-light col s12 animate" type="submit" name="action">Save</button>
+        </form>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-animate.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
