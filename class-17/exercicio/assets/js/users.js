@@ -11,7 +11,7 @@ function config($routeProvider) {
 			controller: 'UserController',
 			controllerAs: 'User'
 		})
-		.when('/users/github/:login', {
+		.when('/users/github/:user', {
 			templateUrl: 'views/users-github.html',
 			controller: 'UserGitHubController',
 			controllerAs: 'UserGitHub'
